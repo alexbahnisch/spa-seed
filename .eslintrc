@@ -1,0 +1,54 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": [
+      "./tsconfig.json"
+    ]
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "react-hooks"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "array-callback-return": ["error", { "checkForEach": true }],
+    "arrow-body-style": ["error", "as-needed"],
+    "block-scoped-var": "error",
+    "camelcase": ["error", { "allow": ["^UNSAFE_"], "ignoreGlobals": true, "properties": "never" }],
+    "default-case": "error",
+    "default-case-last": "error",
+    "dot-notation": "error",
+    "eqeqeq": "error",
+    "no-await-in-loop": "error",
+    "no-constructor-return": "error",
+    "no-duplicate-imports": "error",
+    "no-promise-executor-return": "error",
+    "no-self-compare": "error",
+    "no-template-curly-in-string": "error",
+    "no-unmodified-loop-condition": "error",
+    "no-unreachable-loop": "error",
+//    "no-use-before-define": "error",
+    "require-atomic-updates": "error",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "none"
+        },
+        "singleline": {
+          "delimiter": "comma",
+          "requireLast": false
+        },
+        "multilineDetection": "brackets"
+      }
+    ]
+  }
+}

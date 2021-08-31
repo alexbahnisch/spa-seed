@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  webpack:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    command: ['npm', 'run', 'watch']
+    ports:
+      - "7001:7001"
+    volumes:
+      - dist:/src/.build
+      - ./app:/src/app
+      - ./tsconfig.json:/src/tsconfig.json
+      - ./webpack.config.ts:/src/webpack.config.ts
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: local
+    command: [ 'npm', 'run', 'server' ]
+    restart: always
+    depends_on:
+      - webpack
+    ports:
+      - "7000:7000"
+    volumes:
+      - dist:/src/.build
+
+volumes:
+  dist:

@@ -1,0 +1,8 @@
+# root:
+/.env
+/.build
+/.coverage
+/.idea
+/cdk.context.json
+/cdk.out
+/node_modules
