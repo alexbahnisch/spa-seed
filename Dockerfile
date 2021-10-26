@@ -1,6 +1,6 @@
 FROM amazon/aws-lambda-nodejs:14 as node
 
-RUN npm install -g npm@8.0.0
+RUN npm install -g npm@8.1.1
 
 
 FROM node as base

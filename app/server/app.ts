@@ -88,9 +88,13 @@ async function handleIndex(request: express.Request, response: express.Response,
   response.send(index.toString())
 }
 
-async function handleFallthrough(request: express.Request, response: express.Response) {
+async function handleFallthrough(request: express.Request, response: express.Response, next: express.NextFunction) {
   const routes: string[] = request.path.split('/')
-  response.redirect(`${getBaseHref(request)}${routes[routes.length - 1]}`)
+  if (routes.length > 1) {
+    response.redirect(`${getBaseHref(request)}${routes[routes.length - 1]}`)
+  } else {
+    next()
+  }
 }
 
 app.use(handleResponseHeaders)

@@ -74,7 +74,7 @@ type:
 
 .PHONY: watch
 ## build & watch application
-dev:
+watch:
 	@npm run watch
 
 
@@ -97,6 +97,13 @@ compose_lambda:
 compose_prod:
 	@docker-compose --file docker-compose.prod.yml up --build --detach
 	@docker-compose --file docker-compose.prod.yml logs --follow server
+
+.PHONY: compose_down
+## down all docker containers and volumes
+compose_down:
+	@docker-compose --file docker-compose.yml down --volumes
+	@docker-compose --file docker-compose.lambda.yml down --volumes
+	@docker-compose --file docker-compose.prod.yml down --volumes
 
 
 # Docker build and publish targets:

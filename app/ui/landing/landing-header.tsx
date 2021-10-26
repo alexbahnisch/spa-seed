@@ -18,7 +18,7 @@ export function LandingHeader(): JSX.Element {
         <Typography alignSelf="centre" variant="h5">
           {APP_TITLE.toUpperCase()}
         </Typography>
-        <Box sx={{ flexGrow: 1 }} />
+        <Box sx={{ flexGrow: 0.75 }} />
         <Typography>{themeMode} mode</Typography>
         <ThemeModeButton />
         <SignInButton />
